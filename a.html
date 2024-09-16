@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Card Removal</title>
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+            text-align: center;
+        }
+        .cardImg {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="cardContainer"></div>
+<button onclick="removeCard('card4')">Remove SQL Card</button>
+<button onclick="removeCard('card5')">Remove SEO Card</button>
+
+<script>
+    // Initial cards array
+    let cardsArray = [
+        { id: 'card4', imageUrl: 'assets/html.svg', text: 'sql' },
+        { id: 'card5', imageUrl: 'assets/html.svg', text: 'seo' }
+    ];
+
+    // Function to create a card element
+    function createCard(card) {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card');
+        cardDiv.id = card.id;
+
+        const imgElement = document.createElement('img');
+        imgElement.src = card.imageUrl;
+        imgElement.classList.add('cardImg');
+
+        const textNode = document.createTextNode(card.text);
+
+        cardDiv.appendChild(imgElement);
+        cardDiv.appendChild(textNode);
+
+        document.getElementById('cardContainer').appendChild(cardDiv);
+    }
+
+    // Function to render all cards in the array
+    function renderCards() {
+        document.getElementById('cardContainer').innerHTML = ''; // Clear existing cards
+        cardsArray.forEach(createCard); // Recreate all cards in the array
+    }
+
+    // Function to remove a card from the array and the DOM
+    function removeCard(cardId) {
+        // Remove from the array
+        cardsArray = cardsArray.filter(card => card.id !== cardId);
+
+        // Remove the card from the DOM
+        const cardElement = document.getElementById(cardId);
+        if (cardElement) {
+            cardElement.remove();
+        }
+    }
+
+    // Initial render of all cards
+    renderCards();
+</script>
+
+</body>
+</html>

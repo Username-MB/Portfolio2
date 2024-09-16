@@ -1,0 +1,45 @@
+@use 'root';
+
+#carouselCont{
+    margin-top: 5rem;
+    width: 50rem;
+    height: 70rem;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardImg{
+    width: 10rem;
+
+}
+.card{
+    width: 40rem;
+    height: 60rem;
+}
+
+#card1{
+    z-index: 9;
+    display: flex;
+}
+#card2{
+    z-index: 9;
+    display: flex;
+}
+#card3{
+    z-index: 9;
+    display: flex;
+}
+#card4{
+    z-index: 9;
+    display: flex;
+}
+#card5{
+    z-index: 9;
+    display: flex;
+}
+#card9{
+    z-index: 9;
+    display: flex;
+}
